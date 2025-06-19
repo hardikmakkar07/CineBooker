@@ -20,7 +20,6 @@ const Register = () => {
 		SetIsRegistering(true)
 		try {
 			const response = await axios.post('/auth/register', data)
-			// console.log(response.data)
 			toast.success('Registration successful!', {
 				position: 'top-center',
 				autoClose: 2000,
@@ -28,8 +27,10 @@ const Register = () => {
 			})
 			navigate('/')
 		} catch (error) {
-			console.error(error.response.data)
-			setErrorsMessage(error.response.data)
+			console.error(error.response?.data)
+			const message = error.response?.data?.message
+			setErrorsMessage(typeof message === 'string' ? message : 'Registration failed')
+
 			toast.error('Error', {
 				position: 'top-center',
 				autoClose: 2000,
@@ -56,19 +57,21 @@ const Register = () => {
 						type="text"
 						autoComplete="username"
 						{...register('username', { required: true })}
-						className={inputClasses`${errors.username ? 'border-red-500' : ''}`}
+						className={`${inputClasses()} ${errors.username ? 'border-red-500' : ''}`}
 						placeholder="Username"
 					/>
 					{errors.username && <span className="text-sm text-red-500">Username is required</span>}
+
 					<input
 						name="email"
 						type="email"
 						autoComplete="email"
 						{...register('email', { required: true })}
-						className={inputClasses`${errors.email ? 'border-red-500' : ''}`}
+						className={`${inputClasses()} ${errors.email ? 'border-red-500' : ''}`}
 						placeholder="Email"
 					/>
-					{errors.username && <span className="text-sm text-red-500">Email is required</span>}
+					{errors.email && <span className="text-sm text-red-500">Email is required</span>}
+
 					<input
 						name="password"
 						type="password"
@@ -80,10 +83,11 @@ const Register = () => {
 								message: 'Password must be at least 6 characters long'
 							}
 						})}
-						className={inputClasses`${errors.password ? 'border-red-500' : ''}`}
+						className={`${inputClasses()} ${errors.password ? 'border-red-500' : ''}`}
 						placeholder="Password"
 					/>
 					{errors.password && <span className="text-sm text-red-500">{errors.password?.message}</span>}
+
 					<div>
 						{errorsMessage && <span className="text-sm text-red-500">{errorsMessage}</span>}
 						<button
@@ -96,7 +100,7 @@ const Register = () => {
 					</div>
 					<p className="text-right">
 						Already have an account?{' '}
-						<Link to={'/login'} className="font-bold text-blue-600">
+						<Link to="/login" className="font-bold text-blue-600">
 							Login here
 						</Link>
 					</p>

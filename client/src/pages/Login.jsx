@@ -31,14 +31,16 @@ const Login = () => {
 			setAuth((prev) => ({ ...prev, token: response.data.token }))
 			navigate('/')
 		} catch (error) {
-			console.error(error.response.data)
-			setErrorsMessage(error.response.data)
-			toast.error('Error', {
-				position: 'top-center',
-				autoClose: 2000,
-				pauseOnHover: false
-			})
-		} finally {
+  console.error(error.response?.data)
+  const message = error?.response?.data?.message;
+  setErrorsMessage(typeof message === 'string' ? message : 'Login failed');
+
+  toast.error('Error', {
+    position: 'top-center',
+    autoClose: 2000,
+    pauseOnHover: false
+  })
+}finally {
 			SetLoggingIn(false)
 		}
 	}
@@ -59,7 +61,7 @@ const Login = () => {
 						type="text"
 						autoComplete="username"
 						{...register('username', { required: true })}
-						className={inputClasses`${errors.username ? 'border-red-500' : ''}`}
+						className={`${inputClasses()} ${errors.username ? 'border-red-500' : ''}`}
 						placeholder="Username"
 					/>
 					{errors.username && <span className="text-sm text-red-500">Username is required</span>}
@@ -68,7 +70,7 @@ const Login = () => {
 						type="password"
 						autoComplete="current-password"
 						{...register('password', { required: true })}
-						className={inputClasses`${errors.password ? 'border-red-500' : ''}`}
+						className={`${inputClasses()} ${errors.password ? 'border-red-500' : ''}`}
 						placeholder="Password"
 					/>
 					{errors.password && <span className="text-sm text-red-500">Password is required</span>}
