@@ -1,4 +1,4 @@
-import axios from '../config/axiosConfig';
+import axios from './config/axiosConfig';
 import { Route, Routes } from "react-router";
 import { ToastContainer } from "react-toastify";
 import AdminRoute from "./AdminRoute";
