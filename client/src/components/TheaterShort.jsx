@@ -1,5 +1,5 @@
 import { ArrowsRightLeftIcon, ArrowsUpDownIcon, UserIcon } from '@heroicons/react/24/outline'
-import axios from 'axios'
+import axios from '../config/axiosConfig'
 import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../context/AuthContext'
 import Loading from './Loading'

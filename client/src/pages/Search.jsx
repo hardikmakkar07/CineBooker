@@ -9,7 +9,7 @@ import {
 	MapIcon
 } from '@heroicons/react/24/outline'
 import { ArrowDownIcon, TrashIcon } from '@heroicons/react/24/solid'
-import axios from 'axios'
+import axios from '../config/axiosConfig'
 import { Fragment, useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Select from 'react-tailwindcss-select'

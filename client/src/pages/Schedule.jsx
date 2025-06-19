@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../config/axiosConfig'
 import { useContext, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Select from 'react-tailwindcss-select'

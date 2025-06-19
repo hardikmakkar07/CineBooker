@@ -5,7 +5,7 @@ import {
 	PencilSquareIcon,
 	TrashIcon
 } from '@heroicons/react/24/solid'
-import axios from 'axios'
+import axios from '../config/axiosConfig'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'

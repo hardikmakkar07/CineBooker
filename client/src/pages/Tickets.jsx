@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../config/axiosConfig'
 import { useContext, useEffect, useState } from 'react'
 import Loading from '../components/Loading'
 import Navbar from '../components/Navbar'

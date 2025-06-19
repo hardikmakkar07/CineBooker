@@ -1,6 +1,6 @@
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
 import { TrashIcon } from '@heroicons/react/24/solid'
-import axios from 'axios'
+import axios from '../config/axiosConfig'
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'

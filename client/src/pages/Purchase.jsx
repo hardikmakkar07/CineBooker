@@ -1,5 +1,5 @@
 import { TicketIcon } from '@heroicons/react/24/solid'
-import axios from 'axios'
+import axios from '../config/axiosConfig'
 import { useContext, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'

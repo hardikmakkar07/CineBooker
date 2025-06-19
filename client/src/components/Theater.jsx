@@ -1,5 +1,5 @@
 import { ArrowsRightLeftIcon, ArrowsUpDownIcon, InformationCircleIcon, UserIcon } from '@heroicons/react/24/outline'
-import axios from 'axios'
+import axios from '../config/axiosConfig'
 import { useContext, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Select from 'react-tailwindcss-select'

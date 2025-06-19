@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../config/axiosConfig'
 import { useEffect, useState } from 'react'
 import 'react-toastify/dist/ReactToastify.css'
 import CinemaLists from './CinemaLists'
