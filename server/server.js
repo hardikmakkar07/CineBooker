@@ -24,12 +24,9 @@ mongoose
 
 const app = express()
 
-const FRONTEND_URL = 'https://your-vercel-frontend.vercel.app';
+const FRONTEND_URL = 'https://cine-booker.vercel.app/';
 
-app.use(cors({
-  origin: FRONTEND_URL,     // allow only your frontend
-  credentials: true          // allow cookies if used
-}));
+
 
 app.use(express.json())
 app.use(cookieParser())
